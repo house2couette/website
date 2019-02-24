@@ -1,0 +1,82 @@
+body {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.navbar, .navbar-brand {
+	padding: 0 !important;
+}
+
+#navLogoH2C {
+    padding: 5px;
+    width: 50px;
+}
+
+#navTitleH2C {
+	vertical-align:-25%;
+}
+
+.navbar.navbar-light.bg-light {
+	background: rgba(255,255,255,0.8) !important;
+} 
+
+.navbar-dark .navbar-nav .nav-link {
+	color: white !important;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+	background: rgba(50,50,50,0.4) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: rgb(80, 80, 80) !important;
+}
+
+ul {
+    margin-top: .5rem !important;
+}
+
+#description {
+    background: url(images/goutez_electronique-2015.jpg) 50% 0 fixed;
+    opacity: 0.9;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 140px 0;
+}
+
+.transparency {
+	background: rgba(233,236,239,0.9) !important;
+}
+
+#description ul {
+    list-style-type: square;
+}
+
+#poster {
+    padding: 40px 0;
+    background : rgb(240, 240, 240);
+}
+
+#carouselPoster {
+    width: 50%;
+}
+
+#carouselPoster img {
+    width: 100%;
+}
+
+#end {
+    background-size: 5%;
+	padding: 1.5rem 0 1rem 0;
+}
+
+.center {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+footer {
+	padding-top: 10px; 
+}
