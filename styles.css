@@ -53,6 +53,14 @@ ul {
     list-style-type: square;
 }
 
+#description h1 {
+    font-size: 4em;
+}
+
+#description h2 {
+    font-size: 2em;
+}
+
 #poster {
     padding: 40px 0;
     background : rgb(240, 240, 240);
