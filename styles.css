@@ -37,6 +37,7 @@ ul {
 
 #description {
     background: url(images/goutez_electronique-2015.jpg) 50% 0 fixed;
+    background-position: 50% !important;
     opacity: 0.9;
     height: auto;
     margin: 0 auto;
