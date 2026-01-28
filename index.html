@@ -1,141 +1,367 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>House 2 Couette / Nantes</title>
-	<link rel="icon" type="image/png" href="/im/favicon.gif" />
-	<link rel="apple-touch-icon" href="/im/appleicon.png" />
-	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	 crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-	 crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	 crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-	 crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-	 crossorigin="anonymous"></script>
-	<script src="script.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>House 2 Couette – 20 ans de musiques électroniques à Nantes</title>
+  <meta name="description" content="Fondée en 2006, House 2 Couette célèbre 20 ans d'engagement pour les musiques électroniques à Nantes et organise le festival Goûtez Électronique.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="House 2 Couette – 20 ans de musiques électroniques">
+  <meta property="og:description" content="Association nantaise depuis 2006, organisatrice du festival Goûtez Électronique.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fafafa;
+      --fg: #161616;
+      --soft: #eaeaea;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    section { padding: 6rem 1.5rem; margin: 0; }
+    .container { max-width: 960px; margin: auto; }
+
+    /* HERO — refonte UX */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: url("images/goutez_electronique-2015-2.jpg") center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      /* astuce contraste : double couche */
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.25)),
+        radial-gradient(circle at center, rgba(0,0,0,0.25), rgba(0,0,0,0.6));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      max-width: 90%;
+    }
+
+    .hero-wordmark {
+      font-weight: 900;
+      font-size: clamp(3.2rem, 8vw, 6rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #fff;
+      text-shadow: 0 6px 24px rgba(0,0,0,0.6);
+    }
+
+    .hero-years {
+      font-size: 1.05rem;
+      letter-spacing: 0.4em;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.6);
+      opacity: 0.95;
+    }
+
+    /* STORY */
+    .story { background: #fff; padding-bottom: 3rem; }
+    .story h2,
+    .timeline h2,
+    .posters h2 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 2.5rem;
+      text-transform: none;
+    }
+
+    .story p { font-size: 1.05rem; margin-bottom: 1.4rem; }
+    .highlight { font-weight: 700; }
+
+    /* TIMELINE */
+    .timeline {
+      background: #111;
+      color: #fff;
+      padding: 6rem 1.5rem;
+    }
+
+    .timeline ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 3rem 0 0;
+      position: relative;
+    }
+
+    .timeline ul::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    .timeline li {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 0.35rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #ffb703;
+      box-shadow: 0 0 0 6px rgba(255,183,3,0.2);
+    }
+
+    .timeline-year {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #ffb703;
+    }
+
+    .timeline-text {
+      margin-top: 0.3rem;
+      opacity: 0.9;
+      max-width: 720px;
+    }
+
+    /* POSTERS */
+    .posters { background: var(--soft); }
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .poster-grid img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .poster-credit {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #555;
+      text-align: left;
+    }
+
+    .poster-credit a {
+      color: #555;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+
+    .poster-credit a:hover {
+      color: #333;
+      border-bottom-color: rgba(0,0,0,0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      font-size: 0.9rem;
+      background: white;
+      border-top: 1px solid var(--soft);
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 4rem 1.2rem; }
+    }
+  </style>
 </head>
+<body>
 
-<body data-spy="scroll" data-target="#navbarH2C" data-offset="50">
-	<nav id="navbarH2C" class="navbar navbar-expand-lg fixed-top navbar-light bg-light" role="navigation">
-		<a class="navbar-brand" href="#">
-			<img id="navLogoH2C" src="images/logo-h2c.svg" class="d-inline-block align-top" alt="logo">
-			<span id="navTitleH2C">House 2 Couette</span></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-		 aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav ml-auto">
-				<div class="dropdown-divider"></div>
-				<li>
-					<a class="nav-link" href="https://www.facebook.com/house2couette" title="Retrouvez House 2 Couette sur facebook"
-					 target="_blank">
-						<i class="fab fa-facebook fa-lg"></i>
-					</a>
-				</li>
-				<li>
-					<a class="nav-link" href="mailto:%6d&#101;&#108;&#64;%68%6f%75&#115;e&#50;c%6f%75%65&#116;&#116;&#101;%2e%63&#111;%6d"
-					 title="Nous envoyer un email" target="_blank">
-						<i class="fas fa-envelope"></i>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+<main>
 
-	<!-- Section Description -->
-	<section id="description" data-speed="6" data-type="background">
-		<div class="container">
-			<div class="jumbotron transparency">
-				<h1 class="display-4"> Depuis 2006
-				</h1>
-				<br>
-				<h2>L’association <b>House 2 Couette</b> a pour but de :
-					<ul>
-						<li>promouvoir les musiques électroniques et les artistes affiliés
-							à ce genre musical ;</li>
-						<li>d'organiser le festival annuel : <a href="https://www.goutez-electronique.com" target="_blank">Goûtez
-								Électronique</a>.</li>
-					</ul>
-				</h2>
-			</div>
-		</div>
-	</section>
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-wordmark">House 2 Couette</div>
+    <div class="hero-subtitle">20 ans de musiques électroniques à Nantes</div>
+    <div class="hero-years">2006 → 2026</div>
+  </div>
+</section>
 
-	<!-- Section Poster -->
-	<section id="poster" data-speed="5" data-type="background">
-		<div class="container">
-			<h1>Affiches de nos évènements</h1>
-			<br>
-			<div class="row justify-content-center">
-				<div id="carouselPoster" class="carousel slide carousel-fade" data-ride="carousel">
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img src="poster/goutez_electronique-2018.png" alt="2018">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/goutez_electronique-2017.jpg" alt="2017">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/goutez_electronique-2016.jpg" alt="2016">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/goutez_electronique_bientot_lete-2016.jpg" alt="Stereolux 2016">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/reveillons_electronique-2015.jpg" alt="Réveillons 2015">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/goutez_electronique-2015.jpg" alt="2015">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/goutez_electronique-2014.jpg" alt="2014">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/goutez_electronique_bientot_lete-2014.jpg" alt="Stereolux 2014">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/goutez_electronique-2013.jpg" alt="2013">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/goutez_electronique-2012.jpg" alt="2012">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/goutez_electronique-2011.jpg" alt="2011">
-						</div>
-						<div class="carousel-item">
-							<img src="poster/goutez_electronique-2009.png" alt="2019">
-						</div>
-					</div>
-					<a class="carousel-control-prev" href="#carouselPoster" role="button" data-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="carousel-control-next" href="#carouselPoster" role="button" data-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
+<section class="story">
+  <div class="container">
+    <h2>Une aventure humaine et musicale</h2>
 
-	<!-- Section End -->
-	<section id="end" data-speed="4" data-type="background">
-		<footer class="center">
-			<i>Copyright House 2 Couette </i>&#x25C8;
-			<span class="gotolineResponsive"><i>Association loi 1901, créée en 2006.</i></span>
-		</footer>
-	</section>
+    <p>
+      L’association <strong>House 2 Couette</strong> voit le jour en 2006,
+      à l’initiative de trois amis — Mathieu Le Gac, Jonathan Pepin et Pierre-Alexandre Poix —
+      animés par une même envie : créer des espaces de diffusion et de partage autour des
+      musiques électroniques, dans un esprit libre, curieux et accessible.
+    </p>
+
+    <p>
+      Dès 2007, l’association investit les ondes avec une émission sur <strong> Radio Prun’</strong>,
+      diffusée jusqu’en 2016. Ce rendez-vous radiophonique devient un véritable travail de
+      programmation, de transmission et de découverte musicale, porté par l’invitation
+      d’artistes en direct, venus de toute la région.
+    </p>
+
+    <p>
+      En 2009, <strong>Goûtez Électronique</strong> prend forme pour la première fois au
+      <strong>Jardin des Berges</strong>. Le projet affirme alors une intention forte : sortir les musiques
+      électroniques des clubs pour les faire vivre en plein jour, en plein air,
+      un dimanche, à un moment où l’offre culturelle est souvent rare.
+      Un festival accessible, gratuit, ouvert et ancré dans le quotidien.
+      À cette période, Guillaume Combeuil rejoint l’aventure dès l’émergence du
+      projet Goûtez Électronique, apportant son énergie et son regard artistique de
+      <em>contributeur engagé de la scène nantaise</em>.
+
+    </p>
+
+    <p>
+      Au fil des années, Goûtez Électronique s’inscrit durablement sur le parc des
+      chantiers de l’Île de Nantes, territoire emblématique en mutation.
+      Ancienne friche industrielle devenue quartier en renouveau, ce site crée un lien
+      naturel entre patrimoine portuaire et vie culturelle contemporaine (déambulation de l'éléphant), en dialogue direct avec le centre-ville.
+    </p>
+
+    <p>
+      Le festival s’y déploie comme un triptyque : le <strong>Jardin des Berges</strong>,
+      pelouse ouverte et familial ; la <strong>Cale des Sous-Marins</strong>, investie de nuit
+      lors d’éditions nocturnes ; et la <strong>Grue Jaune</strong>, symbole phare du passé
+      portuaire nantais. Mettre ces lieux en animation, les faire vivre et résonner,
+      fait partie intégrante du projet culturel porté par l’association.
+    </p>
+
+    <p>
+      En parallèle, House 2 Couette explore de nouveaux formats et lieux : les soirées
+      <em>Bientôt l’été</em> au Stéréolux (2014–2016), les premiers afters au Macadam
+      à partir de 2018, puis la — soirée de fin de saison et fête des bénévoles — au
+      <strong>Little Atlantique Brewery</strong> depuis 2025. Chaque étape marque une évolution,
+      sans jamais renier l’esprit d’origine : des évènements accessibles à tous.
+    </p>
+
+    <p>
+      Ces dernières années voient également l’émergence de nouvelles formes :
+      un Goûtez Électronique sous la Grue Jaune depuis 2023, un format
+      <em>Goûtez Électro’Kids</em> destiné aux enfants, ainsi qu’une diffusion en direct
+      sur la <strong>webradio DY10</strong>, élargissant encore les publics et les modes d’écoute.
+      Dans cette même dynamique, le projet s’enrichit du regard des programmateurs
+      artistiques du collectif <strong>Combo Bongos</strong>, dont l’implication accompagne
+      l’évolution naturelle de la programmation, un regard complémentaire et actuel, attentive aux scènes
+      émergentes et aux esthétiques contemporaines.
+    </p>
+
+    <p>
+      Depuis sa conception, <strong>Goûtez Électronique</strong> est resté
+      <strong>gratuit, indépendant et participatif</strong>.
+      L’événement repose sur une organisation 100&nbsp;% bénévole et mobilise
+      jusqu’à <strong>70 bénévoles</strong> le jour J. Un engagement collectif qui fait
+      partie intégrante de l’identité du festival et de l’association.
+    </p>
+    </p>
+
+    <p>
+      Aujourd’hui, l’aventure se poursuit autour de <em>Jonathan Pepin</em>,
+      président, membre fondateur toujours engagé, entouré d’une équipe soudée — Florent Couturier,
+      Johann Gehrig, Claire Pavec, Julien You et Thibaut Poulain — qui fait vivre
+      l’association saison après saison.
+    </p>
+
+    <p>
+      En <strong>2026</strong>, House 2 Couette célèbre
+      <strong>ses 20 ans</strong>. Vingt années de projets collectifs, de rencontres et de musique,
+      <strong><u>plus de 60 éditions et 200 artistes</u></strong> partageant la scène du Goûtez Electronique ; toujours avec la conviction : faire exister
+      les musiques électroniques comme une culture du partage, de la fête et du lien social.
+    </p>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="container">
+    <h2>Les moments clés</h2>
+    <ul>
+      <li><div class="timeline-year">2006</div><div class="timeline-text">Création de l’association House 2 Couette</div></li>
+      <li><div class="timeline-year">2007</div><div class="timeline-text">Lancement de l’émission radio sur Prun’</div></li>
+      <li><div class="timeline-year">2009</div><div class="timeline-text">Premier Goûtez Électronique au Jardin des Berges</div></li>
+      <li><div class="timeline-year">2016</div><div class="timeline-text">10 ans de l’association, premier Goûtez Electronique nocturne dans la Cale des Sous-Marins</div></li>
+      <li><div class="timeline-year">2018</div><div class="timeline-text">Premiers afters au Macadam</div></li>
+      <li><div class="timeline-year">2022</div><div class="timeline-text">50ème date de Goûtez Electronique</div></li>
+      <li><div class="timeline-year">2023</div><div class="timeline-text">Premier Goûtez Électronique sous la Grue Jaune</div></li>
+      <li><div class="timeline-year">2025</div><div class="timeline-text">Électro’Kids au LAB et direct sur la webradio DY10</div></li>
+      <li><div class="timeline-year">2026</div><div class="timeline-text">20 ans de House 2 Couette</div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="posters">
+  <div class="container">
+    <h2>Les affiches du festival</h2>
+
+    <div class="poster-grid poster-grid-balanced">
+      <!-- Récentes -->
+      <img src="poster/2025-goutez_electronique.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2025" class="poster">
+      <img src="poster/2024-goutez_electronique.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2024" class="poster">
+      <img src="poster/2023-goutez_electronique.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2023" class="poster">
+      <img src="poster/2022-goutez_electronique.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2022" class="poster">
+
+      <!-- Années intermédiaires -->
+      <img src="poster/2020-goutez_electronique.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2020" class="poster">
+      <img src="poster/2019-goutez_electronique.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2019" class="poster">
+      <img src="poster/goutez_electronique-2018.png" loading="lazy" alt="Affiche Goûtez Électronique 2018" class="poster">
+      <img src="poster/goutez_electronique-2017.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2017" class="poster">
+      <img src="poster/goutez_electronique-2016.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2016" class="poster">
+
+      <!-- Formats spécifiques -->
+      <img src="poster/goutez_electronique_bientot_lete-2016.jpg" loading="lazy" alt="Bientôt l’été – Stéréolux 2016" class="poster">
+      <img src="poster/reveillons_electronique-2015.jpg" loading="lazy" alt="Réveillons Électronique 2015" class="poster">
+      <img src="poster/goutez_electronique-2015.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2015" class="poster">
+      <img src="poster/goutez_electronique-2014.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2014" class="poster">
+      <img src="poster/goutez_electronique_bientot_lete-2014.jpg" loading="lazy" alt="Bientôt l’été – Stéréolux 2014" class="poster">
+      <img src="poster/goutez_electronique-2013.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2013" class="poster">
+      <img src="poster/goutez_electronique-2012.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2012" class="poster">
+      <img src="poster/goutez_electronique-2011.jpg" loading="lazy" alt="Affiche Goûtez Électronique 2011" class="poster">
+      <img src="poster/goutez_electronique-2009.png" loading="lazy" alt="Affiche Goûtez Électronique 2009" class="poster">
+    </div>
+    <p class="poster-credit">
+      <a href="https://jeanfrancoisleroux.com" target="_blank" rel="noopener">
+        Affiches depuis 2015 : Jean‑François Leroux
+      </a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© House 2 Couette — Association loi 1901, fondée en 2006 — Nantes</p>
+</footer>
+
 </body>
-
 </html>
