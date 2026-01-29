@@ -188,12 +188,57 @@
       border-bottom-color: rgba(0,0,0,0.4);
     }
 
+    .goutez-electronique {
+      background: #ffb703;
+      color: #111;
+    }
+
+    .goutez-electronique-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .goutez-electronique-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin: 0 0 0.8rem;
+    }
+
+    .goutez-electronique-cta {
+      display: inline-block; /* clé du centrage logique */
+      text-align: center;
+    }
+
+    .goutez-electronique-cta p {
+      margin: 0;
+    }
+
+    .goutez-electronique-link {
+      margin-top: 0.6rem;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 700;
+    }
+
+    .goutez-electronique-link a {
+      color: #111;
+      font-weight: 700;
+      text-decoration: underline;
+      font-size: 1.5rem;
+    }
+
+    .goutez-electronique-logo img {
+      width: clamp(60px, 10vw, 110px);
+      height: auto;
+      display: block;
+    }
+
     footer {
       text-align: center;
       padding: 2rem 1rem 3rem;
       font-size: 0.9rem;
-      background: white;
-      border-top: 1px solid var(--soft);
+      background: #ffb703;
+      border-top: 6px double var(--fg);
     }
 
     @media (max-width: 768px) {
@@ -356,6 +401,36 @@
     </p>
   </div>
 </section>
+
+  <section class="goutez-electronique">
+    <div class="container goutez-electronique-inner">
+      <div class="goutez-electronique-logo">
+        <!-- Logo Goûtez Électronique (oiseau) -->
+        <img src="images/logo-goutez-electronique.png" alt="Goûtez Électronique">
+      </div>
+
+      <div class="goutez-electronique-text">
+        <p class="goutez-electronique-title">
+          La suite se joue maintenant.
+        </p>
+
+        <div class="goutez-electronique-cta">
+          <p>
+            Retrouvez les prochaines dates de <strong>Goûtez Électronique</strong> sur le site dédié
+          </p>
+          <p class="goutez-electronique-link">
+            <a href="https://www.goutez-electronique.com"
+               target="_blank"
+               rel="noopener">
+              www.goutez-electronique.com
+            </a>
+          </p>
+        </div>
+      </div>
+
+
+
+  </section>
 
 </main>
 
